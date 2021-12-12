@@ -3,7 +3,7 @@ var cors = require('cors')
 
 const { sendToQueue } = require('./sendQueue')
 const app = express()
-const port = 3000
+const port = process.env.port || 5000
 
 app.use(cors())
 app.get('/', async(req, res) => {
@@ -17,5 +17,6 @@ app.get('/sendQueue', async(req, res) => {
 
 
 app.listen(port, () => {
+
   console.log(`Example app listening at http://localhost:${port}`)
 })
