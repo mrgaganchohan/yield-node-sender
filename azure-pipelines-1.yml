@@ -9,13 +9,13 @@ trigger:
 variables:
 
   # Azure Resource Manager connection created during pipeline creation
-  azureSubscription: '67991440-0286-43cc-bed0-d167e1adfaa7'
+  azureSubscription: 'e1329d67-ceb8-4725-9e08-ce4d14da5b2d'
 
   # Web app name
-  webAppName: 'app-service-yield-servicebus-queue-sender'
+  webAppName: 'test-apppppp'
 
   # Environment name
-  environmentName: 'app-service-yield-servicebus-queue-sender'
+  environmentName: 'test-apppppp'
 
   # Agent VM image name
   vmImageName: 'ubuntu-latest'
@@ -32,7 +32,7 @@ stages:
     steps:
     - task: NodeTool@0
       inputs:
-        versionSpec: '14.x'
+        versionSpec: '10.x'
       displayName: 'Install Node.js'
 
     - script: |
@@ -68,11 +68,11 @@ stages:
         deploy:
           steps:
           - task: AzureWebApp@1
-            displayName: 'Azure Web App Deploy: app-service-yield-servicebus-queue-sender'
+            displayName: 'Azure Web App Deploy: test-apppppp'
             inputs:
               azureSubscription: $(azureSubscription)
               appType: webAppLinux
               appName: $(webAppName)
-              runtimeStack: 'NODE| 14.x'
+              runtimeStack: 'NODE|10.10'
               package: $(Pipeline.Workspace)/drop/$(Build.BuildId).zip
               startUpCommand: 'npm run start'
