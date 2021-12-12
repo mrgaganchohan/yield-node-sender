@@ -3,7 +3,7 @@ var cors = require('cors')
 
 const { sendToQueue } = require('./sendQueue')
 const app = express()
-const port = 5000
+const port = 443
 
 app.use(cors())
 app.get('/', async(req, res) => {
